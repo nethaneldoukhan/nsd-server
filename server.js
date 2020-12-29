@@ -10,7 +10,7 @@ const morgan = require('morgan')
 const debug = require('debug')('app:server')
 const chalk = require('chalk')
 // const pagesFunctions = require('./src/functions/pagesFunctions')
-const port = 8000
+const port = process.env.PORT || 8000
 const dotenv = require('dotenv')
 dotenv.config()
 const connectionUrl = process.env.DB_URI
