@@ -131,13 +131,14 @@ app.get('*', (req, res) => {
 
 
 const start = async () => {
-    // await mongoose.connect(
-    //     'mongodb://127.0.0.1/nsd', //local
+    await mongoose.connect(
+        // 'mongodb://127.0.0.1/nsd', //local
     //     // 'mongodb+srv://nati:nati1980.@tefilatime.hkuvn.mongodb.net/tefilaTime?retryWrites=true&w=majority&useNewUrlParser=true&useUnifiedTopology=true', // serveur
+        'mongodb+srv://nati:nati1980.@nsd.louvo.mongodb.net/nsd?retryWrites=true&w=majority&useNewUrlParser=true&useUnifiedTopology=true',
     //     // connectionUrl,
-    //     {useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true}
-    // )
-    // debug('Connected to db server')
+        {useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true}
+    )
+    debug('Connected to db server')
 
     app.listen(port, () => {
         debug(`listening on port ${chalk.green(port)}`)
