@@ -1,6 +1,7 @@
 const express = require('express');
 const https = require('https');
 const CallBack = require('../schemas/callBackSchema');
+const Log = require('../schemas/log');
 const debug = require('debug')('app:payments')
 
 const paymentsRouter = express.Router();
@@ -16,13 +17,14 @@ function router() {
         })
 
 
-    paymentsRouter.route('/callBack/:id')
+    paymentsRouter.route('/callBack')
         .post((req, res) => {
             debug('receipt callBack')
+            Log.collection.insertOne({"date": new Date()})
             // res.send('receipt callBack')
-            const responseJson = req.params.id
+            const responseJson = { ...req.body }
             debug(responseJson)
-            CallBack.collection.insertOne({"name": responseJson});
+            CallBack.collection.insertOne({responseJson})
             
             res.send(responseJson)
             // (async () => {
