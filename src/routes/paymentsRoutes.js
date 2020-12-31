@@ -24,7 +24,7 @@ function router() {
             // res.send('receipt callBack')
             const responseJson = { ...req.body }
             debug(responseJson)
-            CallBack.collection.insertOne({responseJson})
+            CallBack.collection.insertOne(responseJson)
             
             res.send(responseJson)
             // (async () => {
